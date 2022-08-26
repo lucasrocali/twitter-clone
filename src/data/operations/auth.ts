@@ -1,5 +1,4 @@
-// POST /login and /token requests are handled by rickandmortyapi.com
-// so we are mocking for demo purposes
+import { axiosInstance } from '../api';
 
 //login
 export interface LoginVars {
@@ -8,20 +7,20 @@ export interface LoginVars {
 }
 
 export type LoginData = {
+  type: string;
   token: string;
+  expires_at: string;
 };
 
 export async function login({
-  email, //eslint-disable-line
-  password, //eslint-disable-line
+  email,
+  password,
 }: LoginVars): Promise<LoginData> {
-  // const { data } = await axiosInstance.post<LoginData>(`/login`, {
-  //   email,
-  //   password,
-  // });
-  return {
-    token: 'mocked-token',
-  };
+  const { data } = await axiosInstance.post<LoginData>(`/login`, {
+    email,
+    password,
+  });
+  return data;
 }
 
 //refreshToken

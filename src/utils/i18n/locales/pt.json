@@ -2,6 +2,7 @@
   "base": "Base",
   "launch": "Launch",
   "login": "Login",
+  "register": "Cadastrar",
   "profile": "Perfil",
   "logout": "Logout",
   "character": "Personagem",

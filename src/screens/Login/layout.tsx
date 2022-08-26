@@ -26,9 +26,10 @@ const Content = styled.View`
 
 interface LoginLayoutProps {
   onLogin: (email: string, password: string) => void;
+  onRegister: () => void;
 }
 
-export default function LoginLayout({ onLogin }: LoginLayoutProps) {
+export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -40,20 +41,25 @@ export default function LoginLayout({ onLogin }: LoginLayoutProps) {
           testID={'text-input-email'}
           value={email}
           placeholder={t('email')}
-          onChangeText={setEmail}
+          onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           testID={'text-input-password'}
           value={password}
           placeholder={t('password')}
           secureTextEntry
-          onChangeText={setPassword}
+          onChangeText={(text) => setPassword(text)}
         />
         <Button
           testID={'button-login'}
           text={t('login')}
           disabled={email.length === 0 || password.length === 0}
           onPress={() => onLogin(email, password)}
+        />
+        <Button
+          testID={'button-register'}
+          text={t('register')}
+          onPress={() => onRegister()}
         />
       </Content>
     </Container>

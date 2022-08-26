@@ -9,7 +9,7 @@ import AppLoading from 'expo-app-loading';
 import { LogBox } from 'react-native';
 LogBox.ignoreAllLogs();
 
-const STORYBOOK_ENABLED = false;
+const STORYBOOK_ENABLED = true;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
