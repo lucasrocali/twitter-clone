@@ -20,9 +20,17 @@ export default function Login() {
         routes: [{ name: 'MainTab' }],
       });
     },
+    onError: (error) => console.log({ error }),
   });
 
+  //- se login success => navigation.reset MainTab
+  //- se falha no login => mostrar mensagem de error
+  //- onRegister => navigation.navigate SignUp
+
   return (
-    <LoginLayout onLogin={(email, password) => login({ email, password })} />
+    <LoginLayout
+      onLogin={(email, password) => login({ email, password })}
+      onRegister={() => console.log('TODO')}
+    />
   );
 }

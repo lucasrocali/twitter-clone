@@ -5,6 +5,7 @@ import LoginLayout from './layout';
 
 export const actions = {
   onLogin: action('onLogin'),
+  onRegister: action('onRegister'),
 };
 storiesOf('screens/Login', module).add('default', () => (
   <LoginLayout {...actions} />

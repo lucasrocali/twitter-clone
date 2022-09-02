@@ -23,6 +23,6 @@ storiesOf('components/Button', module).add('default', () => (
     <VSpacer />
     <Button text={'Login'} {...actions} disabled />
     <VSpacer />
-    <Button text={'Logout'} {...actions} />
+    <Button text={'Cadastrar'} buttonStyle={'outline'} {...actions} />
   </Container>
 ));

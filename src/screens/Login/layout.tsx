@@ -7,6 +7,11 @@ import { t } from 'src/utils/i18n';
 
 const Container = styled(StackScreen)``;
 
+const ScrollView = styled.ScrollView`
+  flex: 1;
+  padding-horizontal: 20px;
+`;
+
 const TextInput = styled.TextInput.attrs(({ theme }) => ({
   placeholderTextColor: theme.color.gray.c500,
 }))`
@@ -18,10 +23,16 @@ const TextInput = styled.TextInput.attrs(({ theme }) => ({
   color: ${({ theme }) => theme.color.gray.c900};
 `;
 
-const Content = styled.View`
-  flex: 1;
-  padding: 20px;
-  justify-content: center;
+const Title = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.inter.bold};
+  color: ${({ theme }) => theme.color.gray.c900};
+  font-size: 48px;
+  margin-vertical: 76px;
+  text-align: center;
+`;
+
+const ButtonWrapper = styled.View`
+  padding-bottom: 12px;
 `;
 
 interface LoginLayoutProps {
@@ -36,7 +47,8 @@ export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
   return (
     <Container>
       <NavHeader title={t('login')} />
-      <Content>
+      <ScrollView>
+        <Title>{'Twitter Clone'}</Title>
         <TextInput
           testID={'text-input-email'}
           value={email}
@@ -50,18 +62,23 @@ export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
           secureTextEntry
           onChangeText={(text) => setPassword(text)}
         />
-        <Button
-          testID={'button-login'}
-          text={t('login')}
-          disabled={email.length === 0 || password.length === 0}
-          onPress={() => onLogin(email, password)}
-        />
-        <Button
-          testID={'button-register'}
-          text={t('register')}
-          onPress={() => onRegister()}
-        />
-      </Content>
+        <ButtonWrapper>
+          <Button
+            testID={'button-login'}
+            text={t('login')}
+            disabled={email.length === 0 || password.length === 0}
+            onPress={() => onLogin(email, password)}
+          />
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button
+            testID={'button-register'}
+            text={t('register')}
+            buttonStyle={'outline'}
+            onPress={() => onRegister()}
+          />
+        </ButtonWrapper>
+      </ScrollView>
     </Container>
   );
 }

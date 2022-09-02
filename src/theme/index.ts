@@ -30,6 +30,9 @@ export const light: DefaultTheme = {
       c800: '#53389E',
       c900: '#42307D',
     },
+    blue: {
+      active: '#4C9EEB',
+    },
   },
   fontFamily: {
     inter: {
@@ -67,6 +70,9 @@ export const dark: DefaultTheme = {
       c700: '#F4EBFF',
       c800: '#F9F5FF',
       c900: '#FCFAFF',
+    },
+    blue: {
+      active: '#4C9EEB',
     },
   },
   fontFamily: {
