@@ -12,6 +12,14 @@ export type LoginData = {
   expires_at: string;
 };
 
+type ErrorInfo = {
+  message: string;
+};
+
+export type LoginErrorData = {
+  errors: ErrorInfo[];
+};
+
 export async function login({
   email,
   password,

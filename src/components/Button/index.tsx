@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 
 type ButtonStyle = 'default' | 'outline';
 
@@ -35,11 +35,14 @@ const Text = styled.Text<TextProps>`
   font-size: 16px;
 `;
 
+const Loading = styled.ActivityIndicator``;
+
 interface ButtonProps {
   testID?: string;
   text: string;
   disabled?: boolean;
   buttonStyle?: ButtonStyle;
+  loading?: boolean;
   onPress: () => void;
 }
 
@@ -48,8 +51,10 @@ export default function Button({
   text,
   disabled,
   buttonStyle = 'default',
+  loading,
   onPress,
 }: ButtonProps) {
+  const theme = useTheme();
   return (
     <Container
       testID={testID}
@@ -57,7 +62,11 @@ export default function Button({
       disabled={disabled}
       buttonStyle={buttonStyle}
     >
-      <Text buttonStyle={buttonStyle}>{text}</Text>
+      {loading ? (
+        <Loading color={theme.color.gray.c25} />
+      ) : (
+        <Text buttonStyle={buttonStyle}>{text}</Text>
+      )}
     </Container>
   );
 }

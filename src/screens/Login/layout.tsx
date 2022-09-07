@@ -31,18 +31,37 @@ const Title = styled.Text`
   text-align: center;
 `;
 
+const ErrorText = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.inter.regular};
+  color: ${({ theme }) => theme.color.gray.c900};
+  font-size: 16px;
+  margin-vertical: 20px;
+  text-align: center;
+`;
+
 const ButtonWrapper = styled.View`
   padding-bottom: 12px;
 `;
 
-interface LoginLayoutProps {
+export interface LoginLayoutProps {
+  initialEmail?: string;
+  initialPassword?: string;
+  loading: boolean;
+  errorMessage?: string;
   onLogin: (email: string, password: string) => void;
   onRegister: () => void;
 }
 
-export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default function LoginLayout({
+  initialEmail = '',
+  initialPassword = '',
+  loading,
+  errorMessage,
+  onLogin,
+  onRegister,
+}: LoginLayoutProps) {
+  const [email, setEmail] = useState(initialEmail);
+  const [password, setPassword] = useState(initialPassword);
 
   return (
     <Container>
@@ -67,6 +86,7 @@ export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
             testID={'button-login'}
             text={t('login')}
             disabled={email.length === 0 || password.length === 0}
+            loading={loading}
             onPress={() => onLogin(email, password)}
           />
         </ButtonWrapper>
@@ -78,6 +98,7 @@ export default function LoginLayout({ onLogin, onRegister }: LoginLayoutProps) {
             onPress={() => onRegister()}
           />
         </ButtonWrapper>
+        <ErrorText>{errorMessage || ''}</ErrorText>
       </ScrollView>
     </Container>
   );

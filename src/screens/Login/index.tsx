@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAuth } from 'src/context/auth';
@@ -10,25 +10,27 @@ type LoginNavProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
 export default function Login() {
   const navigation = useNavigation<LoginNavProp>();
+  const [errorMessage, setErrorMessage] = useState<string>();
 
   const { onLogin } = useAuth();
 
-  const { mutate: login } = useLoginMutation({
+  const { mutate: login, isLoading } = useLoginMutation({
     onSuccess: ({ token }) => {
       onLogin(token);
       navigation.reset({
         routes: [{ name: 'MainTab' }],
       });
     },
-    onError: (error) => console.log({ error }),
+    onError: (error) => {
+      const message = error.response?.data?.errors?.[0]?.message;
+      setErrorMessage(message);
+    },
   });
-
-  //- se login success => navigation.reset MainTab
-  //- se falha no login => mostrar mensagem de error
-  //- onRegister => navigation.navigate SignUp
 
   return (
     <LoginLayout
+      loading={isLoading}
+      errorMessage={errorMessage}
       onLogin={(email, password) => login({ email, password })}
       onRegister={() => console.log('TODO')}
     />
