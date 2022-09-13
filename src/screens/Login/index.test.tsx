@@ -115,5 +115,15 @@ describe('LoginScreen', () => {
     expect(errorText).toBeTruthy();
   });
 
-  //TODO - onRegister => navigation.navigate SignUp
+  test('should navigate to Signup', async () => {
+    const { getByTestId } = render(
+      <AppProviders>
+        <LoginScreen />
+      </AppProviders>,
+    );
+
+    const buttonRegister = getByTestId('button-register');
+    fireEvent.press(buttonRegister);
+    expect(mockNavigate).toBeCalledWith('Signup');
+  });
 });

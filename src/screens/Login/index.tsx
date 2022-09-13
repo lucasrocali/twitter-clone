@@ -32,7 +32,7 @@ export default function Login() {
       loading={isLoading}
       errorMessage={errorMessage}
       onLogin={(email, password) => login({ email, password })}
-      onRegister={() => console.log('TODO')}
+      onRegister={() => navigation.navigate('Signup')}
     />
   );
 }
