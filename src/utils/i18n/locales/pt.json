@@ -8,5 +8,8 @@
   "character": "Personagem",
   "characters": "Personagens",
   "email": "Email",
-  "password": "Senha"
+  "password": "Senha",
+  "nickname": "Nickname",
+  "name": "Nome",
+  "confirmRegister": "Confirmar Cadastro"
 }
