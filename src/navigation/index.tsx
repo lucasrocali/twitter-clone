@@ -16,6 +16,7 @@ import {
   CharactersStackParamList,
   ProfileStackParamList,
 } from './types';
+import Signup from 'src/screens/Signup';
 
 const BottomTabNavigator = createBottomTabNavigator<MainTabParamList>();
 
@@ -106,6 +107,7 @@ export default function RootNavigation(): JSX.Element {
             animation: 'slide_from_bottom',
           }}
         />
+        <RootStack.Screen name={'Signup'} component={Signup} />
         <RootStack.Screen
           name={'MainTab'}
           component={MainTab}

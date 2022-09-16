@@ -40,10 +40,7 @@ export default function NavHeader({ title, onGoBack }: NavHeaderProps) {
       <Content>
         <ButtonView>
           {onGoBack ? (
-            <BackButtonIcon
-              testID={'backButtonIcon'}
-              onPress={() => onGoBack()}
-            />
+            <BackButtonIcon testID={'button-back'} onPress={() => onGoBack()} />
           ) : null}
         </ButtonView>
         <Title>{title}</Title>

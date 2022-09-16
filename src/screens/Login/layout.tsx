@@ -5,6 +5,7 @@ import NavHeader from 'src/components/NavHeader';
 import { StackScreen } from 'src/components/Screen';
 import { t } from 'src/utils/i18n';
 import TextInput from 'src/components/TextInput';
+import { isValidEmail, isValidPassword } from 'src/utils';
 
 const Container = styled(StackScreen)``;
 
@@ -53,8 +54,10 @@ export default function LoginLayout({
   const [email, setEmail] = useState(initialEmail);
   const [password, setPassword] = useState(initialPassword);
 
-  const loginEnabled = email.length > 0 && password.length > 0;
+  const validEmail = isValidEmail(email);
+  const validPassword = isValidPassword(password);
 
+  const loginEnabled = validEmail && validPassword;
   return (
     <Container>
       <NavHeader title={t('login')} />
@@ -64,12 +67,14 @@ export default function LoginLayout({
           testID={'text-input-email'}
           value={email}
           placeholder={t('email')}
+          invalid={!validEmail}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           testID={'text-input-password'}
           value={password}
           placeholder={t('password')}
+          invalid={!validPassword}
           secureTextEntry
           onChangeText={(text) => setPassword(text)}
         />

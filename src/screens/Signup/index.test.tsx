@@ -10,10 +10,12 @@ import SignupScreen from './';
 
 const mockGoBack = jest.fn();
 const mockNavigate = jest.fn();
+const mockReset = jest.fn();
 jest.mock('@react-navigation/native');
 
 (useNavigation as jest.Mock).mockReturnValue({
   goBack: mockGoBack,
+  reset: mockReset,
   navigate: mockNavigate,
 });
 
@@ -44,18 +46,19 @@ describe('SignupScreen', () => {
 
   //criar validação email
 
-  test('should ...', async () => {
-    const { findByText, getByTestId } = render(
+  test('should navigate back and disable register button if no input', async () => {
+    const { getByTestId } = render(
       <AppProviders>
         <SignupScreen />
       </AppProviders>,
     );
 
-    const title = await findByText('Signup');
-    expect(title).toBeTruthy();
-
-    const backButtonIcon = getByTestId('backButtonIcon');
-    fireEvent.press(backButtonIcon);
+    const buttonBack = getByTestId('button-back');
+    fireEvent.press(buttonBack);
     expect(mockGoBack).toBeCalled();
+
+    const buttonConfirm = getByTestId('button-confirm');
+    fireEvent.press(buttonConfirm);
+    expect(mockReset).not.toBeCalled();
   });
 });

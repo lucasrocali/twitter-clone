@@ -15,12 +15,12 @@ const Container = styled.TouchableOpacity.attrs({
     disabled
       ? theme.color.gray.c600
       : buttonStyle === 'default'
-      ? theme.color.blue.active
+      ? theme.color.fixed.blue
       : theme.color.gray.c25};
   border-radius: 20px;
   border-width: 2px;
   border-color: ${({ disabled, theme }) =>
-    disabled ? theme.color.gray.c600 : theme.color.blue.active};
+    disabled ? theme.color.gray.c600 : theme.color.fixed.blue};
   align-items: center;
   justify-content: center;
 `;
@@ -31,7 +31,7 @@ interface TextProps {
 const Text = styled.Text<TextProps>`
   font-family: ${({ theme }) => theme.fontFamily.inter.bold};
   color: ${({ buttonStyle, theme }) =>
-    buttonStyle === 'default' ? theme.color.gray.c25 : theme.color.blue.active};
+    buttonStyle === 'default' ? theme.color.gray.c25 : theme.color.fixed.blue};
   font-size: 16px;
 `;
 

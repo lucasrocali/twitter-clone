@@ -5,6 +5,12 @@ import { StackScreen } from 'src/components/Screen';
 import { t } from 'src/utils/i18n';
 import TextInput from 'src/components/TextInput';
 import Button from 'src/components/Button';
+import {
+  isValidEmail,
+  isValidName,
+  isValidNickname,
+  isValidPassword,
+} from 'src/utils';
 
 const Container = styled(StackScreen)``;
 
@@ -43,11 +49,13 @@ export default function SignupLayout({
   const [email, setEmail] = useState(initialEmail);
   const [password, setPassword] = useState(initialPassword);
 
+  const validNickname = isValidNickname(nickname);
+  const validName = isValidName(name);
+  const validEmail = isValidEmail(email);
+  const validPassword = isValidPassword(password);
+
   const registerEnabled =
-    nickname.length > 0 &&
-    name.length > 0 &&
-    email.length > 0 &&
-    password.length > 0;
+    validNickname && validName && validEmail && validPassword;
 
   return (
     <Container>
@@ -57,24 +65,28 @@ export default function SignupLayout({
           testID={'text-input-nickname'}
           placeholder={t('nickname')}
           value={nickname}
+          invalid={!validNickname}
           onChangeText={(text) => setNickname(text)}
         />
         <TextInput
           testID={'text-input-name'}
           placeholder={t('name')}
           value={name}
+          invalid={!validName}
           onChangeText={(text) => setName(text)}
         />
         <TextInput
           testID={'text-input-email'}
           placeholder={t('email')}
           value={email}
+          invalid={!validEmail}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           testID={'text-input-password'}
           placeholder={t('password')}
           value={password}
+          invalid={!validPassword}
           onChangeText={(text) => setPassword(text)}
         />
         <Button

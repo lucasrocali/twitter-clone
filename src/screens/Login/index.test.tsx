@@ -67,7 +67,7 @@ describe('LoginScreen', () => {
     fireEvent.changeText(textInputEmail, 'u1@email.com');
 
     const textInputPassword = getByTestId('text-input-password');
-    fireEvent.changeText(textInputPassword, 'test123');
+    fireEvent.changeText(textInputPassword, 'test1234');
 
     const buttonLogin = getByTestId('button-login');
     fireEvent.press(buttonLogin);
@@ -106,7 +106,7 @@ describe('LoginScreen', () => {
     fireEvent.changeText(textInputEmail, 'u1@email.com');
 
     const textInputPassword = getByTestId('text-input-password');
-    fireEvent.changeText(textInputPassword, 'test123');
+    fireEvent.changeText(textInputPassword, 'test1234');
 
     const buttonLogin = getByTestId('button-login');
     fireEvent.press(buttonLogin);

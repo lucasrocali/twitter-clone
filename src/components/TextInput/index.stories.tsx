@@ -17,6 +17,7 @@ export const actions = {
 storiesOf('components/TextInput', module).add('default', () => (
   <Container>
     <TextInput value={''} placeholder={'Email'} {...actions} />
+    <TextInput value={''} placeholder={'Email'} invalid {...actions} />
     <TextInput
       value={''}
       placeholder={'Password'}

@@ -29,8 +29,10 @@ declare module 'styled-components' {
         c800: string;
         c900: string;
       };
-      blue: {
-        active: string;
+      fixed: {
+        blue: string;
+        red: string;
+        green: string;
       };
     };
     fontFamily: {
