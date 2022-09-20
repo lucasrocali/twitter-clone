@@ -20,6 +20,14 @@ const ScrollView = styled.ScrollView`
   padding-horizontal: 20px;
 `;
 
+const ErrorText = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.inter.regular};
+  color: ${({ theme }) => theme.color.gray.c900};
+  font-size: 16px;
+  margin-vertical: 20px;
+  text-align: center;
+`;
+
 interface InputInfo {
   nickname: string;
   name: string;
@@ -32,6 +40,8 @@ interface SignupLayoutProps {
   initialName?: string;
   initialEmail?: string;
   initialPassword?: string;
+  loading: boolean;
+  errorMessage?: string;
   onGoBack: () => void;
   onConfirm: (input: InputInfo) => void;
 }
@@ -41,6 +51,8 @@ export default function SignupLayout({
   initialName = '',
   initialEmail = '',
   initialPassword = '',
+  loading,
+  errorMessage,
   onGoBack,
   onConfirm,
 }: SignupLayoutProps) {
@@ -93,6 +105,7 @@ export default function SignupLayout({
           testID={'button-confirm'}
           text={t('confirmRegister')}
           disabled={!registerEnabled}
+          loading={loading}
           onPress={() =>
             onConfirm({
               nickname,
@@ -102,6 +115,7 @@ export default function SignupLayout({
             })
           }
         />
+        {errorMessage ? <ErrorText>{errorMessage}</ErrorText> : null}
       </ScrollView>
     </Container>
   );

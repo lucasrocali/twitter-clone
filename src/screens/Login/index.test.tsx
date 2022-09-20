@@ -7,7 +7,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { AppProviders } from 'src/context';
 import LoginScreen from './';
 import { API_URL } from 'src/data/api';
-import { LoginData, LoginErrorData } from 'src/data/operations/auth';
+import { AuthData, AuthErrorData } from 'src/data/operations/auth';
 
 const mockGoBack = jest.fn();
 const mockNavigate = jest.fn();
@@ -23,7 +23,7 @@ jest.mock('@react-navigation/native');
 const server = setupServer(
   rest.post(`${API_URL}/login`, (_, res, ctx) => {
     return res(
-      ctx.json<LoginData>({
+      ctx.json<AuthData>({
         type: 'bearer',
         token:
           'MjI.vcBJQDC7WsctVDs6NcFy8PxKMmhmeFMqhy-FYvdWxA9MzJUbPWWpJnfTpK1t',
@@ -85,7 +85,7 @@ describe('LoginScreen', () => {
       rest.post(`${API_URL}/login`, (_, res, ctx) => {
         return res(
           ctx.status(400),
-          ctx.json<LoginErrorData>({
+          ctx.json<AuthErrorData>({
             errors: [
               {
                 message: errorMessage,
