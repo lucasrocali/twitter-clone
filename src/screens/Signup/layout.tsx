@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import NavHeader from 'src/components/NavHeader';
-import { StackScreen } from 'src/components/Screen';
-import { t } from 'src/utils/i18n';
-import TextInput from 'src/components/TextInput';
-import Button from 'src/components/Button';
 import {
   isValidEmail,
   isValidName,
   isValidNickname,
   isValidPassword,
 } from 'src/utils';
+import Button from 'src/components/Button';
+import NavHeader from 'src/components/NavHeader';
+import { StackScreen } from 'src/components/Screen';
+import TextInput from 'src/components/TextInput';
+import { t } from 'src/utils/i18n';
 
 const Container = styled(StackScreen)``;
 

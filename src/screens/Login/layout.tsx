@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
+import { isValidEmail, isValidPassword } from 'src/utils';
 import Button from 'src/components/Button';
 import NavHeader from 'src/components/NavHeader';
 import { StackScreen } from 'src/components/Screen';
-import { t } from 'src/utils/i18n';
 import TextInput from 'src/components/TextInput';
-import { isValidEmail, isValidPassword } from 'src/utils';
+import { t } from 'src/utils/i18n';
 
 const Container = styled(StackScreen)``;
 

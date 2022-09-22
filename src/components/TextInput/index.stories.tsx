@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 // import { action } from '@storybook/addon-actions';
 import styled from 'styled-components/native';
 import TextInput from './';
-import { action } from '@storybook/addon-actions';
 
 const Container = styled.View`
   flex: 1;

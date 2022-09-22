@@ -8,11 +8,8 @@ export type RootStackParamList = {
   Base: undefined;
 };
 
-export type CharactersStackParamList = {
-  Characters: undefined;
-  Character: {
-    id: number;
-  };
+export type FeedStackParamList = {
+  Feed: undefined;
 };
 
 export type ProfileStackParamList = {
@@ -20,6 +17,6 @@ export type ProfileStackParamList = {
 };
 
 export type MainTabParamList = {
-  CharactersStack: NavigatorScreenParams<CharactersStackParamList>;
+  FeedStack: NavigatorScreenParams<FeedStackParamList>;
   ProfileStack: NavigatorScreenParams<ProfileStackParamList>;
 };

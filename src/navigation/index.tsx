@@ -5,42 +5,33 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components/native';
 import Icon from 'src/components/Icon';
-import Character from 'src/screens/Character';
-import Characters from 'src/screens/Characters';
+import Base from 'src/screens/Base';
 import Launch from 'src/screens/Launch';
 import Login from 'src/screens/Login';
 import Profile from 'src/screens/Profile';
+import Signup from 'src/screens/Signup';
 import {
   RootStackParamList,
   MainTabParamList,
-  CharactersStackParamList,
+  FeedStackParamList,
   ProfileStackParamList,
 } from './types';
-import Signup from 'src/screens/Signup';
 
 const BottomTabNavigator = createBottomTabNavigator<MainTabParamList>();
 
-const CharactersStackNavigator =
-  createNativeStackNavigator<CharactersStackParamList>();
+const FeedStackNavigator = createNativeStackNavigator<FeedStackParamList>();
 const ProfileStackNavigator =
   createNativeStackNavigator<ProfileStackParamList>();
 
-function CharactersStack(): JSX.Element {
+function FeedStack(): JSX.Element {
   return (
-    <CharactersStackNavigator.Navigator
+    <FeedStackNavigator.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <CharactersStackNavigator.Screen
-        name={'Characters'}
-        component={Characters}
-      />
-      <CharactersStackNavigator.Screen
-        name={'Character'}
-        component={Character}
-      />
-    </CharactersStackNavigator.Navigator>
+      <FeedStackNavigator.Screen name={'Feed'} component={Base} />
+    </FeedStackNavigator.Navigator>
   );
 }
 
@@ -64,7 +55,7 @@ function MainTab(): JSX.Element {
         tabBarIcon: ({ color }) => {
           return (
             <Icon
-              name={route.name === 'CharactersStack' ? 'list' : 'home'}
+              name={route.name === 'FeedStack' ? 'list' : 'home'}
               color={color}
             />
           );
@@ -77,10 +68,7 @@ function MainTab(): JSX.Element {
         },
       })}
     >
-      <BottomTabNavigator.Screen
-        name={'CharactersStack'}
-        component={CharactersStack}
-      />
+      <BottomTabNavigator.Screen name={'FeedStack'} component={FeedStack} />
       <BottomTabNavigator.Screen
         name={'ProfileStack'}
         component={ProfileStack}

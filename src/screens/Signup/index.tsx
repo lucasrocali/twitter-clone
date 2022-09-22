@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from 'src/navigation/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAuth } from 'src/context/auth';
-import SignupLayout from './layout';
 import { useRegisterMutation } from 'src/data/hooks/auth';
+import { RootStackParamList } from 'src/navigation/types';
+import SignupLayout from './layout';
 
 type SignupNavProp = NativeStackNavigationProp<RootStackParamList, 'Signup'>;
 

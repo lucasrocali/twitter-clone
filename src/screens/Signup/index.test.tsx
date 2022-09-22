@@ -6,8 +6,8 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { AppProviders } from 'src/context';
 import { API_URL } from 'src/data/api';
-import SignupScreen from './';
 import { AuthData, AuthErrorData } from 'src/data/operations/auth';
+import SignupScreen from './';
 
 const mockGoBack = jest.fn();
 const mockNavigate = jest.fn();

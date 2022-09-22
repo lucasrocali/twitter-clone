@@ -1,13 +1,13 @@
 import React from 'react';
 import { jest } from '@jest/globals';
 import { useNavigation } from '@react-navigation/native';
+import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { AppProviders } from 'src/context';
-import LoginScreen from './';
 import { API_URL } from 'src/data/api';
 import { AuthData, AuthErrorData } from 'src/data/operations/auth';
+import LoginScreen from './';
 
 const mockGoBack = jest.fn();
 const mockNavigate = jest.fn();

@@ -50,7 +50,7 @@ describe('BaseScreen', () => {
     const title = await findByText('Base');
     expect(title).toBeTruthy();
 
-    const backButtonIcon = getByTestId('backButtonIcon');
+    const backButtonIcon = getByTestId('button-back');
     fireEvent.press(backButtonIcon);
     expect(mockGoBack).toBeCalled();
   });

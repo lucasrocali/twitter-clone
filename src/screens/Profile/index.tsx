@@ -12,8 +12,8 @@ import {
 import ProfileLayout from './layout';
 
 type ProfileNavProp = CompositeNavigationProp<
-  NativeStackNavigationProp<ProfileStackParamList, 'Profile'>,
-  NativeStackNavigationProp<RootStackParamList>
+  NativeStackNavigationProp<RootStackParamList>,
+  NativeStackNavigationProp<ProfileStackParamList, 'Profile'>
 >;
 
 export default function Profile() {
