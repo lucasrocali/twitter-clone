@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react-native';
 // import { action } from '@storybook/addon-actions';
 import styled from 'styled-components/native';
 import PostCell from './';
+import { POST_1, POST_2 } from 'src/data/mocks';
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
   background-color: ${({ theme }) => theme.color.gray.c25};
-  padding: 20px;
 `;
 
 export const actions = {
@@ -15,6 +15,7 @@ export const actions = {
 };
 storiesOf('components/PostCell', module).add('default', () => (
   <Container>
-    <PostCell text={'PostCell Component'} {...actions} />
+    <PostCell post={POST_1} {...actions} />
+    <PostCell post={POST_2} {...actions} />
   </Container>
 ));

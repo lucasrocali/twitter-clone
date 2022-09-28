@@ -1,8 +1,8 @@
 import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { useTheme } from 'styled-components/native';
 
-export type IconName = keyof typeof MaterialIcons.glyphMap;
+export type IconName = keyof typeof FontAwesome.glyphMap;
 
 interface IconProps {
   name: IconName;
@@ -15,5 +15,5 @@ export default function Icon({
   size = 24,
   color = useTheme().color.gray.c900,
 }: IconProps) {
-  return <MaterialIcons name={name} size={size} color={color} />;
+  return <FontAwesome name={name} size={size} color={color} />;
 }

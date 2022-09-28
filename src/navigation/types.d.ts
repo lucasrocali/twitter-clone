@@ -20,3 +20,14 @@ export type MainTabParamList = {
   FeedStack: NavigatorScreenParams<FeedStackParamList>;
   ProfileStack: NavigatorScreenParams<ProfileStackParamList>;
 };
+
+//- Root
+//  - Launch
+//  - Login
+//  - Signup
+//  - Base
+//  - MainTab
+//    - FeedStack
+//      - Feed
+//    - ProfileStack
+//      - Profile

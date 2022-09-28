@@ -11,6 +11,9 @@ const Container = styled.View`
 
 storiesOf('components/Icon', module).add('default', () => (
   <Container>
-    <Icon name={'chevron-left'} />
+    <Icon name={'comment-o'} />
+    <Icon name={'retweet'} />
+    <Icon name={'heart-o'} />
+    <Icon name={'share-square-o'} />
   </Container>
 ));
