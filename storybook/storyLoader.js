@@ -12,6 +12,7 @@ function loadStories() {
   require('../src/components/PostCell/index.stories');
   require('../src/components/TextInput/index.stories');
   require('../src/screens/Base/layout.stories');
+  require('../src/screens/Feed/layout.stories');
   require('../src/screens/Launch/layout.stories');
   require('../src/screens/Login/layout.stories');
   require('../src/screens/Profile/layout.stories');
@@ -27,6 +28,7 @@ const stories = [
   '../src/components/PostCell/index.stories',
   '../src/components/TextInput/index.stories',
   '../src/screens/Base/layout.stories',
+  '../src/screens/Feed/layout.stories',
   '../src/screens/Launch/layout.stories',
   '../src/screens/Login/layout.stories',
   '../src/screens/Profile/layout.stories',

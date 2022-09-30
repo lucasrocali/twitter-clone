@@ -1,6 +1,6 @@
 import React from 'react';
-import { Post } from 'src/data/models';
 import styled from 'styled-components/native';
+import { Post } from 'src/data/models';
 import Icon from '../Icon';
 
 const Container = styled.View`

@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components/native';
 import Icon from 'src/components/Icon';
-import Base from 'src/screens/Base';
+import Feed from 'src/screens/Feed';
 import Launch from 'src/screens/Launch';
 import Login from 'src/screens/Login';
 import Profile from 'src/screens/Profile';
@@ -30,7 +30,7 @@ function FeedStack(): JSX.Element {
         headerShown: false,
       }}
     >
-      <FeedStackNavigator.Screen name={'Feed'} component={Base} />
+      <FeedStackNavigator.Screen name={'Feed'} component={Feed} />
     </FeedStackNavigator.Navigator>
   );
 }

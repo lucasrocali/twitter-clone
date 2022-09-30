@@ -2,8 +2,8 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react-native';
 // import { action } from '@storybook/addon-actions';
 import styled from 'styled-components/native';
-import PostCell from './';
 import { POST_1, POST_2 } from 'src/data/mocks';
+import PostCell from './';
 
 const Container = styled.ScrollView`
   flex: 1;
