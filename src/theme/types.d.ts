@@ -31,6 +31,7 @@ declare module 'styled-components' {
       };
       fixed: {
         blue: string;
+        lightBlue: string;
         red: string;
         green: string;
       };

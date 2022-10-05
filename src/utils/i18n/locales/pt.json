@@ -12,5 +12,9 @@
   "password": "Senha",
   "nickname": "Nickname",
   "name": "Nome",
-  "confirmRegister": "Confirmar Cadastro"
+  "confirmRegister": "Confirmar Cadastro",
+  "createPost": "Criar Post",
+  "textPlaceholder": "What’s happening?",
+  "tweet": "Tweet",
+  "cancel": "Cancel"
 }

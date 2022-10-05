@@ -32,6 +32,7 @@ export const light: DefaultTheme = {
     },
     fixed: {
       blue: '#4C9EEB',
+      lightBlue: '#B9DCF7',
       red: '#e71d36',
       green: '#2ec4b6',
     },
@@ -75,6 +76,7 @@ export const dark: DefaultTheme = {
     },
     fixed: {
       blue: '#4C9EEB',
+      lightBlue: '#B9DCF7',
       red: '#e71d36',
       green: '#2ec4b6',
     },

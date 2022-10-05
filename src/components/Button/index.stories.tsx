@@ -14,6 +14,10 @@ const VSpacer = styled.View`
   height: 10px;
 `;
 
+const Row = styled.View`
+  flex-direction: row;
+`;
+
 export const actions = {
   onPress: action('onPress'),
 };
@@ -26,5 +30,13 @@ storiesOf('components/Button', module).add('default', () => (
     <Button text={'Login'} {...actions} disabled />
     <VSpacer />
     <Button text={'Cadastrar'} buttonStyle={'outline'} {...actions} />
+    <VSpacer />
+    <Row>
+      <Button text={'Tweet'} {...actions} disabled />
+    </Row>
+    <VSpacer />
+    <Row>
+      <Button text={'Tweet'} {...actions} />
+    </Row>
   </Container>
 ));
