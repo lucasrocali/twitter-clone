@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import Button from 'src/components/Button';
 import NavHeader from 'src/components/NavHeader';
 import PostCell from 'src/components/PostCell';
 import { StackScreen } from 'src/components/Screen';
@@ -19,12 +20,26 @@ const Loading = styled.ActivityIndicator``;
 interface FeedLayoutProps {
   posts: Post[];
   loading: boolean;
+  onCreatePost: () => void;
 }
 
-export default function FeedLayout({ posts, loading }: FeedLayoutProps) {
+export default function FeedLayout({
+  posts,
+  loading,
+  onCreatePost,
+}: FeedLayoutProps) {
   return (
     <Container>
-      <NavHeader title={t('feed')} />
+      <NavHeader
+        title={t('feed')}
+        RightComponent={
+          <Button
+            testID={'button-create-post'}
+            text={t('createPost')}
+            onPress={() => onCreatePost()}
+          />
+        }
+      />
       <ScrollView>
         {posts.map((post) => (
           <PostCell key={post.id} post={post} />

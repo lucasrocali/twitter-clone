@@ -2,6 +2,7 @@ import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
+import Button from '../Button';
 import NavHeader from './';
 
 const Container = styled.View`
@@ -13,5 +14,11 @@ storiesOf('components/NavHeader', module).add('default', () => (
     <NavHeader title={'Home'} />
     <NavHeader title={'Profile'} />
     <NavHeader title={'Character'} onGoBack={action('onGoBack')} />
+    <NavHeader
+      title={'Feed'}
+      RightComponent={
+        <Button text={'Criar Post'} onPress={action('onPress')} />
+      }
+    />
   </Container>
 ));

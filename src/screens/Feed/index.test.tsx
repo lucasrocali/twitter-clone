@@ -1,7 +1,7 @@
 import React from 'react';
 import { jest } from '@jest/globals';
 import { useNavigation } from '@react-navigation/native';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { AppProviders } from 'src/context';
@@ -36,8 +36,8 @@ describe('FeedScreen', () => {
 
   afterAll(() => server.close());
 
-  test('should show post content', async () => {
-    const { findByText } = render(
+  test('should show post content and handle navigation to CreatePost', async () => {
+    const { findByText, getByTestId } = render(
       <AppProviders>
         <FeedScreen />
       </AppProviders>,
@@ -45,5 +45,9 @@ describe('FeedScreen', () => {
 
     const postContent1 = await findByText(POST_1.content);
     expect(postContent1).toBeTruthy();
+
+    const buttonCreatePost = getByTestId('button-create-post');
+    fireEvent.press(buttonCreatePost);
+    expect(mockNavigate).toBeCalledWith('CreatePost');
   });
 });

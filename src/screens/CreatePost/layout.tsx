@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled, { useTheme } from 'styled-components/native';
+import Button from 'src/components/Button';
 import { StackScreen } from 'src/components/Screen';
 import { t } from 'src/utils/i18n';
-import Button from 'src/components/Button';
 
 const Container = styled(StackScreen)``;
 
@@ -50,29 +50,35 @@ const TextInput = styled.TextInput`
   font-size: 19px;
 `;
 
-const MAX_CHARS = 180;
+// const MAX_CHARS = 180;
 
 interface CreatePostLayoutProps {
+  initialText?: string;
+  loading?: boolean;
   onGoBack: () => void;
   onTweet: (text: string) => void;
 }
 
 export default function CreatePostLayout({
+  initialText = '',
+  loading,
   onGoBack,
   onTweet,
 }: CreatePostLayoutProps) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState(initialText);
   const theme = useTheme();
   return (
     <Container>
       <Header>
-        <TouchView onPress={() => onGoBack()}>
+        <TouchView testID={'button-go-back'} onPress={() => onGoBack()}>
           <CancelText>{t('cancel')}</CancelText>
         </TouchView>
         <HeaderContent />
         <Button
+          testID={'button-create-post'}
           disabled={text.length === 0}
           text={t('tweet')}
+          loading={loading}
           onPress={() => onTweet(text)}
         />
       </Header>
@@ -80,6 +86,7 @@ export default function CreatePostLayout({
         <AvatarView />
         <TextView>
           <TextInput
+            testID={'text-input'}
             value={text}
             onChangeText={(text) => setText(text)}
             placeholder={t('textPlaceholder')}

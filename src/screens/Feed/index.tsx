@@ -14,5 +14,11 @@ export default function Feed() {
 
   const posts = postsData || [];
 
-  return <FeedLayout posts={posts} loading={isLoading} />;
+  return (
+    <FeedLayout
+      posts={posts}
+      loading={isLoading}
+      onCreatePost={() => navigation.navigate('CreatePost')}
+    />
+  );
 }

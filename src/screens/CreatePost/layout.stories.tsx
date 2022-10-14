@@ -7,6 +7,8 @@ export const actions = {
   onGoBack: action('onGoBack'),
   onTweet: action('onTweet'),
 };
-storiesOf('screens/CreatePost', module).add('default', () => (
-  <CreatePostLayout {...actions} />
-));
+storiesOf('screens/CreatePost', module)
+  .add('default', () => <CreatePostLayout {...actions} />)
+  .add('loading', () => (
+    <CreatePostLayout {...actions} initialText={'Post 1'} loading />
+  ));

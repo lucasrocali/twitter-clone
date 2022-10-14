@@ -10,6 +10,7 @@ export type RootStackParamList = {
 
 export type FeedStackParamList = {
   Feed: undefined;
+  CreatePost: undefined;
 };
 
 export type ProfileStackParamList = {
@@ -29,5 +30,6 @@ export type MainTabParamList = {
 //  - MainTab
 //    - FeedStack
 //      - Feed
+//      - CreatePost
 //    - ProfileStack
 //      - Profile

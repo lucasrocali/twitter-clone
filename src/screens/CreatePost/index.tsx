@@ -1,20 +1,29 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import {
-  useNavigation /*, useRoute, RouteProp*/,
-} from '@react-navigation/native';
-import { RootStackParamList } from 'src/navigation/types';
+import { useCreatePostMutation } from 'src/data/hooks/posts';
+import { FeedStackParamList } from 'src/navigation/types';
 import CreatePostLayout from './layout';
 
-type CreatePostNavProp = NativeStackNavigationProp<RootStackParamList, 'CreatePost'>;
-
-// type CreatePostRouteProp = RouteProp<RootStackParamList, 'CreatePost'>;
+type CreatePostNavProp = NativeStackNavigationProp<
+  FeedStackParamList,
+  'CreatePost'
+>;
 
 export default function CreatePost() {
   const navigation = useNavigation<CreatePostNavProp>();
-  // const {
-  //   params: { someParam },
-  // } = useRoute<CreatePostRouteProp>();
 
-  return <CreatePostLayout onGoBack={() => navigation.goBack()} />;
+  const { mutate: createPost, isLoading } = useCreatePostMutation({
+    onSuccess: () => {
+      navigation.goBack();
+    },
+  });
+
+  return (
+    <CreatePostLayout
+      loading={isLoading}
+      onGoBack={() => navigation.goBack()}
+      onTweet={(text) => createPost({ content: text })}
+    />
+  );
 }
